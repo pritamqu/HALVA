@@ -262,10 +262,10 @@ def preprocess_multimodal(
 
 def split_string_by_mask_and_tokenize(string, tokenizer):
 
-    # TODO: this is a bit hacky solution
+    # this is a bit hacky solution
     # works fine with the current data and llama2 tokenizer
     # we figured a relatively better solution by assigning a new token 
-    # to MASK; will release that in the final verion.
+    # to MASK; will release that solution in the final verion.
         
     tokens = []
     signs = []

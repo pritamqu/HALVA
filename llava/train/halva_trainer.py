@@ -596,7 +596,6 @@ class HalvaTrainer(Trainer):
         batch_sz = divergence.shape[0]
         divergence = divergence.sum()/batch_sz
 
-        # TODO: increase self.loss_alpha linearly
         loss = contrastive_loss + self.loss_alpha*divergence
 
         return loss
