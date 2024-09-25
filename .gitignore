@@ -1,8 +1,8 @@
 __pycache__/
 eval_hall/amber/data/*
-eval_hall/amber/data_tmp/*
+# eval_hall/amber/data_tmp/*
 eval_hall/hallusion_bench/HallusionBench.json
-eval_hall/hallusion_bench/HallusionBench_temp.json
+# eval_hall/hallusion_bench/HallusionBench_temp.json
 
 
 
