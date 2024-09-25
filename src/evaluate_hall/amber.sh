@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # to change the .cache location
-export HOME=/scratch/ssd004/scratch/pritam/ 
+export HOME=/scratch/ssd004/scratch/anonymous/ 
 
 # load module
-source /h/pritam/anaconda3/etc/profile.d/conda.sh
+source /h/anonymous/anaconda3/etc/profile.d/conda.sh
 conda activate halva
 
 export MASTER_ADDR=$(hostname)
@@ -28,8 +28,8 @@ PROMPT_VERSION=v1
 MAX_NEW_TOKENS=1024
 
 JOBID=${MODEL} 
-OUTDIR="/fs01/home/pritam/pritam_ssd004/OUTPUTS/HALVA/"${JOBID}
-IMG_DIR="/fs01/home/pritam/pritam_ssd004/datasets/amber/image/"
+OUTDIR="/fs01/home/anonymous/anonymous_ssd004/OUTPUTS/HALVA/"${JOBID}
+IMG_DIR="/fs01/home/anonymous/anonymous_ssd004/datasets/amber/image/"
 ANNO_DIR="eval_hall/amber"
 
 if [[ $MODE == 'a' ]]; then
@@ -79,7 +79,7 @@ if [[ $MODEL_BASE == 'none' ]]; then
 else
     # with lora
     
-    MODEL_DIR="/fs01/home/pritam/pritam_ssd004/OUTPUTS/HALVA/"
+    MODEL_DIR="/fs01/home/anonymous/anonymous_ssd004/OUTPUTS/HALVA/"
     MODEL_PATH=${MODEL_DIR}${MODEL}/
 
     AFILE=${OUTDIR}/amber/answer_amber_${MODE}.jsonl

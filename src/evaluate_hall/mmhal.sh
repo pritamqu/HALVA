@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # to change the .cache location
-export HOME=/scratch/ssd004/scratch/pritam/ 
+export HOME=/scratch/ssd004/scratch/anonymous/ 
 
 # load module
-source /h/pritam/anaconda3/etc/profile.d/conda.sh
+source /h/anonymous/anaconda3/etc/profile.d/conda.sh
 conda activate halva
 
 export MASTER_ADDR=$(hostname)
@@ -26,8 +26,8 @@ PROMPT_VERSION=v1
 MAX_NEW_TOKENS=1024
 
 JOBID=${MODEL} 
-DATA_ROOT="/fs01/home/pritam/pritam_ssd004/datasets/"
-OUTDIR="/fs01/home/pritam/pritam_ssd004/OUTPUTS/HALVA/"${JOBID}
+DATA_ROOT="/fs01/home/anonymous/anonymous_ssd004/datasets/"
+OUTDIR="/fs01/home/anonymous/anonymous_ssd004/OUTPUTS/HALVA/"${JOBID}
 
 mkdir -p ${OUTDIR}/mmhal/
 LOGFILE=${OUTDIR}/mmhal/eval.log
@@ -56,7 +56,7 @@ if [[ $MODEL_BASE == 'none' ]]; then
 else
     # with lora
 
-    MODEL_DIR="/fs01/home/pritam/pritam_ssd004/OUTPUTS/HALVA/"
+    MODEL_DIR="/fs01/home/anonymous/anonymous_ssd004/OUTPUTS/HALVA/"
     MODEL_PATH=${MODEL_DIR}${MODEL}/
 
     AFILE=${OUTDIR}/mmhal/answer-file_mmhal.json

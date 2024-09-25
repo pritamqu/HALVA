@@ -3,11 +3,11 @@
 DIRNAME=$1
 
 # load module
-source /h/pritam/anaconda3/etc/profile.d/conda.sh
+source /h/anonymous/anaconda3/etc/profile.d/conda.sh
 conda activate halva
 
 
-ROOT="/fs01/home/pritam/pritam_ssd004/OUTPUTS/HALVA"
+ROOT="/fs01/home/anonymous/anonymous_ssd004/OUTPUTS/HALVA"
 ANNO_DIR="eval_hall/amber"
 
 python eval_hall/amber/merge.py ${DIRNAME}

@@ -9,7 +9,7 @@ def get_args():
     
     parser.add_argument('--data_path',
                         type=str,
-                        default="/scratch/ssd004/scratch/pritam/datasets/MME/MME_Benchmark_release_version")
+                        default="/scratch/ssd004/scratch/anonymous/datasets/MME/MME_Benchmark_release_version")
     
     parser.add_argument('--result_file',
                         type=str,

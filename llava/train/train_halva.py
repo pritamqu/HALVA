@@ -1,6 +1,5 @@
 import os
 import copy
-from dataclasses import dataclass, field
 import json
 import logging
 import pathlib
@@ -10,19 +9,20 @@ import torch
 import glob
 import shutil
 import transformers
-
 from llava.constants import IGNORE_INDEX, IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN, DESCRIPTION_SEPARATOR
 from torch.utils.data import Dataset
 from llava.train.halva_trainer import HalvaTrainer
-
 from llava import conversation as conversation_lib
 from llava.model import *
 from llava.mm_utils import tokenizer_image_token
-
+from string import punctuation
 from PIL import Image
 from transformers import TrainerCallback
 from peft.peft_model import PeftModelForCausalLM
+from dataclasses import dataclass, field
 
+MASK_PLACEHOLDER_START= "<MASK>"
+MASK_PLACEHOLDER_END= "</MASK>"
 local_rank = None
 
 
@@ -256,9 +256,7 @@ def preprocess_multimodal(
 
     return sources
 
-MASK_PLACEHOLDER_START= "<MASK>"
-MASK_PLACEHOLDER_END= "</MASK>"
-from string import punctuation
+
 
 
 
@@ -266,7 +264,8 @@ def split_string_by_mask_and_tokenize(string, tokenizer):
 
     # TODO: this is a bit hacky solution
     # works fine with the current data and llama2 tokenizer
-    # but needs improvement
+    # we figured a relatively better solution by assigning a new token 
+    # to MASK; will release that in the final verion.
         
     tokens = []
     signs = []
@@ -294,8 +293,6 @@ def split_string_by_mask_and_tokenize(string, tokenizer):
         signs.extend([0]*(len(tokens)-len(signs))) # adding 0s for new unmasked tokens
         
         # --------- masked part
-        # punctuation=r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
-
         if string[end_pos + len(end_tag):end_pos + len(end_tag) + 1] in r""".,""":
             skip_ss=2
             punct = string[end_pos + len(end_tag):end_pos + len(end_tag) + 1]
@@ -1239,7 +1236,7 @@ def train():
                     padding_value=tokenizer.pad_token_id,
                     **data_module)
 
-    trainer.add_callback(SaverCallback()) # FIXME: i should not need this
+    trainer.add_callback(SaverCallback()) # i should not need this
 
     if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
         trainer.train(resume_from_checkpoint=True)

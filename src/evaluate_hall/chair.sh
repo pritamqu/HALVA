@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # to change the .cache location
-export HOME=/scratch/ssd004/scratch/pritam/ 
+export HOME=/scratch/ssd004/scratch/anonymous/ 
 
 # load module
-source /h/pritam/anaconda3/etc/profile.d/conda.sh
+source /h/anonymous/anaconda3/etc/profile.d/conda.sh
 conda activate halva
 
 export MASTER_ADDR=$(hostname)
@@ -27,12 +27,12 @@ GPU_NUM=$4
 PROMPT_VERSION=v1
 
 
-MODEL_DIR="/scratch/ssd004/scratch/pritam/OUTPUTS/HALVA/"
+MODEL_DIR="/scratch/ssd004/scratch/anonymous/OUTPUTS/HALVA/"
 
 JOBID=${MODEL}
-OUTDIR="/scratch/ssd004/scratch/pritam/OUTPUTS/HALVA/"${JOBID}
+OUTDIR="/scratch/ssd004/scratch/anonymous/OUTPUTS/HALVA/"${JOBID}
 IMG_DIR="/scratch/ssd004/datasets/MSCOCO2014/val2014"
-ANNO_DIR="/scratch/ssd004/scratch/pritam/datasets/coco/annotations/"
+ANNO_DIR="/scratch/ssd004/scratch/anonymous/datasets/coco/annotations/"
 
 mkdir -p ${OUTDIR}/chair/
 LOGFILE=${OUTDIR}/chair/eval.log

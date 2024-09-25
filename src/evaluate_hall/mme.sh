@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # to change the .cache location
-export HOME=/scratch/ssd004/scratch/pritam/ 
+export HOME=/scratch/ssd004/scratch/anonymous/ 
 
 # load module
-source /h/pritam/anaconda3/etc/profile.d/conda.sh
+source /h/anonymous/anaconda3/etc/profile.d/conda.sh
 conda activate halva
 
 export MASTER_ADDR=$(hostname)
@@ -29,11 +29,11 @@ MAX_NEW_TOKENS=1024
 JOBID=${MODEL}
 MODEL_TYPE=$(echo "$MODEL" | sed 's/\//_/g')
 
-OUTDIR="/scratch/ssd004/scratch/pritam/OUTPUTS/HALVA/"${JOBID}
-MME_ROOT="/fs01/home/pritam/pritam_ssd004/datasets/MME"
+OUTDIR="/scratch/ssd004/scratch/anonymous/OUTPUTS/HALVA/"${JOBID}
+MME_ROOT="/fs01/home/anonymous/anonymous_ssd004/datasets/MME"
 QFILE=${MME_ROOT}/llava_mme.jsonl
 AFILE=${OUTDIR}/mme/answer_mme.jsonl
-IMG_DIR="/scratch/ssd004/scratch/pritam/datasets/MME/MME_Benchmark_release_version"
+IMG_DIR="/scratch/ssd004/scratch/anonymous/datasets/MME/MME_Benchmark_release_version"
 mkdir -p ${OUTDIR}/mme/
 LOGFILE=${OUTDIR}/mme/eval.log
 
@@ -52,7 +52,7 @@ if [[ $MODEL_BASE == 'none' ]]; then
 
 else
     # with lora
-    MODEL_DIR="/scratch/ssd004/scratch/pritam/OUTPUTS/HALVA/"
+    MODEL_DIR="/scratch/ssd004/scratch/anonymous/OUTPUTS/HALVA/"
     MODEL_PATH=${MODEL_DIR}${MODEL}/
 
     CUDA_VISIBLE_DEVICES=$GPU_NUM python -m eval_hall.model_vqa_loader \
@@ -71,6 +71,6 @@ python src/evaluate_hall/convert_answer_to_mme.py \
     --data_path ${IMG_DIR} \
     --result_file ${AFILE} >> ${LOGFILE}
 
-cd /fs01/home/pritam/pritam_ssd004/datasets/MME/eval_tool/ ## TODO: replace this with your path of MME/eval_tool/
+cd /fs01/home/anonymous/anonymous_ssd004/datasets/MME/eval_tool/ ## TODO: replace this with your path of MME/eval_tool/
 python calculation.py --results_dir ${OUTDIR}/mme/answers >> ${LOGFILE}
 # DONOT ADD / after answers

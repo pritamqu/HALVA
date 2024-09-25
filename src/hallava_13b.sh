@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ps
-export HOME=/scratch/ssd004/scratch/pritam/ 
-source /h/pritam/anaconda3/etc/profile.d/conda.sh
+export HOME=/scratch/ssd004/scratch/anonymous/ 
+source /h/anonymous/anaconda3/etc/profile.d/conda.sh
 conda activate halva
 
 
@@ -22,7 +22,7 @@ SAVE_TOTAL_LIMIT=1
 BATCH_SIZE=4
 GRAD_ACC_STEPS=4
 
-OUTDIR="/scratch/ssd004/scratch/pritam/OUTPUTS/HALVA/"${JOBID}
+OUTDIR="/scratch/ssd004/scratch/anonymous/OUTPUTS/HALVA/"${JOBID}
 IMG_DIR="default" # TODO: mention your root image path to access textvqa, gqa, vg, coco, ocr_vqa
 REF_ANNO_FILE="data/llava_subset_ref.json"
 ANNO_FILE="data/hvg.json"

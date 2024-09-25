@@ -1,15 +1,3 @@
-<!-- <div align="center">
-    <img src="assets/halva_icon_keep.png" alt="HALVA" style="width:auto;height:256px;">
-</div>
-<h1 align="center">
-HALVA
-</h1>
-
-<h1 align="center">
-Mitigating Object Hallucination via Data Augmented Contrastive Tuning
-</h1> -->
-
-
 ### Setup environment
 
 ```
@@ -29,6 +17,7 @@ We share a minimal setup to quickly try our HALVA! See this [notebook](try_halva
 
 - [HALVA 7B](https://drive.google.com/drive/folders/1X7Ox-LQ74qXgoVaqVQDx24t1HMIqTpX2)
 - [HALVA 13B](https://drive.google.com/drive/folders/16iH9FFGLykXywgFZEaGUW29pe29wFndK)
+- HALVA 13B/384 will be released upon acceptance
 
 ### Training HALVA
 
@@ -62,12 +51,12 @@ We share a minimal setup to quickly try our HALVA! See this [notebook](try_halva
 Choose the HALVA variant and their base model. We provide sample validation scripts for evaluation, **please make sure to update the paths based on your setup**.
 
 ```
-MODEL="pritamqu/halva13b-lora"
+MODEL="halva13b-lora"
 MODEL_BASE="liuhaotian/llava-v1.5-13b"
 
 # OR
 
-MODEL="pritamqu/halva7b-lora"
+MODEL="halva7b-lora"
 MODEL_BASE="liuhaotian/llava-v1.5-7b"
 ```
 
@@ -101,13 +90,13 @@ bash src/evaluate_hall/mme.sh ${MODEL} ${MODEL_BASE}
 
 ```
 ##### run amber evaluation on 4 GPUs in parallel if available, else run sequentially by removing & from the end
-bash src/vector/evaluate_hall/amber.sh g ${MODEL} ${MODEL_BASE} 0 &
-bash src/vector/evaluate_hall/amber.sh da ${MODEL} ${MODEL_BASE} 1 &
-bash src/vector/evaluate_hall/amber.sh dr ${MODEL} ${MODEL_BASE} 2 &
-bash src/vector/evaluate_hall/amber.sh de ${MODEL} ${MODEL_BASE} 3 &
+bash src/evaluate_hall/amber.sh g ${MODEL} ${MODEL_BASE} 0 &
+bash src/evaluate_hall/amber.sh da ${MODEL} ${MODEL_BASE} 1 &
+bash src/evaluate_hall/amber.sh dr ${MODEL} ${MODEL_BASE} 2 &
+bash src/evaluate_hall/amber.sh de ${MODEL} ${MODEL_BASE} 3 &
 wait
 # get amber f1 for all discriminative tasks
-bash src/vector/evaluate_hall/amber_f1.sh ${MODEL}
+bash src/evaluate_hall/amber_f1.sh ${MODEL}
 ```
 
 #### MMHal-Bench

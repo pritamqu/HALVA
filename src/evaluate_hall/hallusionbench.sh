@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # to change the .cache location
-export HOME=/scratch/ssd004/scratch/pritam/ 
+export HOME=/scratch/ssd004/scratch/anonymous/ 
 
 # load module
-source /h/pritam/anaconda3/etc/profile.d/conda.sh
+source /h/anonymous/anaconda3/etc/profile.d/conda.sh
 conda activate halva
 
 export MASTER_ADDR=$(hostname)
@@ -25,8 +25,8 @@ MODEL_BASE=$2 #
 GPU_NUM=${3:-0}
 
 JOBID=${MODEL}
-OUTDIR="/scratch/ssd004/scratch/pritam/OUTPUTS/HALVA/"${JOBID}
-IMG_DIR='/fs01/home/pritam/pritam_ssd004/datasets/hallusion_bench'
+OUTDIR="/scratch/ssd004/scratch/anonymous/OUTPUTS/HALVA/"${JOBID}
+IMG_DIR='/fs01/home/anonymous/anonymous_ssd004/datasets/hallusion_bench'
 TAG=$(date +"%m%d%H%M%S%4N")
 
 # tag for 3 trials
@@ -54,7 +54,7 @@ if [[ $MODEL_BASE == 'none' ]]; then
 
 else
     # with lora
-    MODEL_DIR="/fs01/home/pritam/pritam_ssd004/OUTPUTS/HALVA/"
+    MODEL_DIR="/fs01/home/anonymous/anonymous_ssd004/OUTPUTS/HALVA/"
     MODEL_PATH=${MODEL_DIR}${MODEL}/
 
     CUDA_VISIBLE_DEVICES=$GPU_NUM python -m eval_hall.hallusion_bench.random_guess \
