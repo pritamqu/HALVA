@@ -590,11 +590,11 @@ class HallDataset(Dataset):
 
         if self.data_args.image_folder=='default':
             self.IMAGE_DIRS={
-                'textvqa': '/h/pritam/pritam_ssd004/datasets/textvqa', 
-                'gqa': '/h/pritam/pritam_ssd004/datasets/gqa', 
-                'vg': '/h/pritam/pritam_ssd004/datasets/vg/images', 
+                'textvqa': '/h/anonymous/anonymous_ssd004/datasets/textvqa', 
+                'gqa': '/h/anonymous/anonymous_ssd004/datasets/gqa', 
+                'vg': '/h/anonymous/anonymous_ssd004/datasets/vg/images', 
                 'coco': '/scratch/ssd004/datasets/MSCOCO2017', 
-                'ocr_vqa': '/h/pritam/pritam_ssd004/datasets/ocr_vqa',
+                'ocr_vqa': '/h/anonymous/anonymous_ssd004/datasets/ocr_vqa',
             }
         else:
             self.IMAGE_DIRS={

@@ -140,7 +140,7 @@ if __name__ == "__main__":
     parser.add_argument("--num_beams", type=int, default=1)
     parser.add_argument("--max_new_tokens", type=int, default=1024)
     parser.add_argument("--test-prompt", type=str, default='')
-    parser.add_argument("--data_root", type=str, default="/fs01/home/pritam/pritam_ssd004/datasets/", 
+    parser.add_argument("--data_root", type=str, default="/fs01/home/anonymous/anonymous_ssd004/datasets/", 
                         help='root directory where huggingface data is stored')
     args = parser.parse_args()
 

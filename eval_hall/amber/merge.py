@@ -33,7 +33,7 @@ def merge_discrimintaive_responses(root, dirname):
 
 if __name__=='__main__':
 
-    root='/fs01/home/pritam/pritam_ssd004/OUTPUTS/CKDv2'
+    root='/fs01/home/anonymous/anonymous_ssd004/OUTPUTS/CKDv2'
     # dirname='Va100_05012021133412_ep_1_alpha_15_lr_5e-6_rand_ub_0.8_lb_0.4_adv_ub_1_lb_0.2_ds_full-qa-balanced_ref_anno_llava_mixed_25K_ref_model_7b_loss_mean_hallava-7b-lora'
     dirname=sys.argv[1]
 

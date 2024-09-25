@@ -128,7 +128,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", type=str, default="liuhaotian/llava-v1.5-13b")
     parser.add_argument("--model-base", type=str, default=None)
-    parser.add_argument("--image-folder", type=str, default="/fs01/home/pritam/pritam_ssd004/datasets/hallusion_bench")
+    parser.add_argument("--image-folder", type=str, default="/fs01/home/anonymous/anonymous_ssd004/datasets/hallusion_bench")
     parser.add_argument("--save_json_path_vd", type=str, default=None, help='something with json')
     parser.add_argument("--save_json_path_vs", type=str, default=None, help='something with json')   
     parser.add_argument("--output_file_name", type=str, default=None, help='something with json')

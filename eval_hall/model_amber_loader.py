@@ -149,7 +149,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", type=str, default="liuhaotian/llava-v1.5-7b")
     parser.add_argument("--model-base", type=str, default=None)
-    parser.add_argument("--image-folder", type=str, default="/fs01/home/pritam/pritam_ssd004/datasets/amber/images/")
+    parser.add_argument("--image-folder", type=str, default="/fs01/home/anonymous/anonymous_ssd004/datasets/amber/images/")
     parser.add_argument("--question-file", type=str, default="eval_hall/amber/data/query/query_all.json")
     parser.add_argument("--answers-file", type=str, default="answer.jsonl")
     parser.add_argument("--conv-mode", type=str, default="vicuna_v1")
