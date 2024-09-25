@@ -1,4 +1,4 @@
-<div align="center">
+<!-- <div align="center">
     <img src="assets/halva_icon_keep.png" alt="HALVA" style="width:auto;height:256px;">
 </div>
 <h1 align="center">
@@ -7,7 +7,7 @@ HALVA
 
 <h1 align="center">
 Mitigating Object Hallucination via Data Augmented Contrastive Tuning
-</h1>
+</h1> -->
 
 
 ### Setup environment
