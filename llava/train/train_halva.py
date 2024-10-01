@@ -639,9 +639,9 @@ class HallDataset(Dataset):
         
         data=json.load(open(data_path))
         closed_subset=[sample for sample in data if sample['tag'] == 'closed']
-        rank0_print(f'number of adv samples {len(closed_subset)}')
+        rank0_print(f'number of closed set samples {len(closed_subset)}')
         open_subset=[sample for sample in data if sample['tag'] == 'open']
-        rank0_print(f'number of rand samples {len(open_subset)}')
+        rank0_print(f'number of open set samples {len(open_subset)}')
         one_word=[sample for sample in data if sample['tag']=='qa']
 
         if True:

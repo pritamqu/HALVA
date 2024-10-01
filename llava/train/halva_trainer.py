@@ -547,7 +547,7 @@ class HalvaTrainer(Trainer):
         return_outputs=False,
     ) -> Union[torch.Tensor, Tuple[torch.Tensor, Dict[str, torch.Tensor]]]:
                
-        # -------------------- cotrastive loss
+        # -------------------- alignment loss
         (
             pos_logps,
             neg_logps,
@@ -565,7 +565,7 @@ class HalvaTrainer(Trainer):
         neg_logps = neg_logps*neg_loss_mask # batch x num_tokens
         pos_logps = pos_logps*pos_loss_mask # batch x num_tokens
 
-        # accumulate logps at word level
+        # accumulate logps at phrase level
         batch_signs = batch_signs.masked_fill(batch_signs==-100, 0)
         pos_sign = batch_signs[:half_len, ]
         neg_sign = batch_signs[half_len:, ]
@@ -573,8 +573,8 @@ class HalvaTrainer(Trainer):
         pos_logps_acc = self.accumulate_logps(pos_logps, pos_sign)
         neg_logps_acc = self.accumulate_logps(neg_logps, neg_sign)
 
-        contrastive_loss = torch.log(1 + torch.exp(neg_logps_acc - pos_logps_acc))
-        contrastive_loss = contrastive_loss.mean()
+        alignment_loss = torch.log(1 + torch.exp(neg_logps_acc - pos_logps_acc))
+        alignment_loss = alignment_loss.mean()
 
         # -------------------- divergence
         (
@@ -596,7 +596,7 @@ class HalvaTrainer(Trainer):
         batch_sz = divergence.shape[0]
         divergence = divergence.sum()/batch_sz
 
-        loss = contrastive_loss + self.loss_alpha*divergence
+        loss = alignment_loss + self.loss_alpha*divergence
 
         return loss
         
