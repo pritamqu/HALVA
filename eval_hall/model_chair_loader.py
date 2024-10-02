@@ -42,7 +42,6 @@ class CustomDataset(Dataset):
         random.shuffle(img_files)
         self.img_files=img_files[:size]
 
-        # FIXME: make this nicer;
         self.img_files = image_list
 
         self.questions=self.img_files

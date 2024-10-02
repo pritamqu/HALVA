@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# ps
 export HOME=/scratch/ssd004/scratch/anonymous/ 
 source /h/anonymous/anaconda3/etc/profile.d/conda.sh
 conda activate halva

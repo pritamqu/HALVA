@@ -107,20 +107,6 @@ def generate_answer(data, model_output_entry):
 
 
 
-# def generate_answer(data, model_output_entry):
-
-#     for i in data:
-#         i[model_output_entry] = "Yes" if random.random() > 0.5 else "No"
-
-#     ## TODO
-#     ## implement this section with yout model!
-#     ## your_function(img_filename, question) -> "0" (No), "1" (Yes), "2" (Uncertain)
-#     # for r in data:
-#         # r[model_output_entry] = your_function(r["filename"], r["question"])
-
-#     return data
-
-
 if __name__ == "__main__":
 
     import argparse
