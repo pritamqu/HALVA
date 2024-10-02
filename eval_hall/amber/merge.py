@@ -33,6 +33,6 @@ def merge_discrimintaive_responses(root, dirname):
 
 if __name__=='__main__':
 
-    root='/fs01/home/anonymous/anonymous_ssd004/OUTPUTS/CKDv2'
+    root='./'
     dirname=sys.argv[1]
     merge_discrimintaive_responses(root, dirname)

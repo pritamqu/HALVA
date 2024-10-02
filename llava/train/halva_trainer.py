@@ -1,10 +1,9 @@
 import os
+import math
 import torch
 import torch.nn as nn
-import math
+import torch.nn.functional as F
 from torch.utils.data import Sampler
-
-from transformers import Trainer
 from transformers.trainer import (
     is_sagemaker_mp_enabled,
     get_parameter_names,
@@ -13,29 +12,16 @@ from transformers.trainer import (
     ShardedDDPOption,
     logger,
 )
-from typing import List, Optional
-from transformers import TrainerCallback, Trainer
-from .import_utils import is_peft_available, is_wandb_available
-from .utils import PreTrainedModelWrapper
-from .utils import disable_dropout_in_model
-from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
-
-
-import os
-import warnings
-# from datasets import Dataset
 from torch.utils.data import Dataset
 from collections import defaultdict
-from typing import Any, Callable, Dict, List, Literal, Optional, Tuple, Union
-
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from accelerate.utils import is_deepspeed_available
 from transformers.trainer_utils import EvalLoopOutput
 from transformers.trainer_callback import TrainerCallback
 from transformers import DataCollator, PreTrainedModel, PreTrainedTokenizerBase, Trainer, TrainingArguments
+from typing import Any, Callable, Dict, List, Literal, Optional, Tuple, Union
+from .import_utils import is_peft_available, is_wandb_available
+
 
 if is_peft_available():
     from peft import PeftModel, get_peft_model, prepare_model_for_kbit_training
@@ -45,6 +31,11 @@ if is_wandb_available():
 
 if is_deepspeed_available():
     import deepspeed
+
+def disable_dropout_in_model(model: torch.nn.Module) -> None:
+    for module in model.modules():
+        if isinstance(module, torch.nn.Dropout):
+            module.p = 0
 
 def maybe_zero_3(param, ignore_status=False, name=None):
     from deepspeed import zero
@@ -237,7 +228,7 @@ class HalvaTrainer(Trainer):
             else:
                 self.ref_model = self.accelerator.prepare_model(self.ref_model, evaluation_mode=True)
 
-    def _prepare_deepspeed(self, model: PreTrainedModelWrapper):
+    def _prepare_deepspeed(self, model):
         # Adapted from accelerate: https://github.com/huggingface/accelerate/blob/739b135f8367becb67ffaada12fe76e3aa60fefd/src/accelerate/accelerator.py#L1473
         deepspeed_plugin = self.accelerator.state.deepspeed_plugin
         config_kwargs = deepspeed_plugin.deepspeed_config
