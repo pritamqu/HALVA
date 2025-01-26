@@ -1,3 +1,37 @@
+
+<div align="center">
+    <img src="assets/halva_icon.png" alt="HALVA" style="width:auto;height:144px;">
+</div>
+<h1 align="center">
+HALVA
+</h1>
+<h3 align="center"> 
+<a href="https://arxiv.org/abs/2405.18654">[arXiV]</a>
+<a href="https://openreview.net/forum?id=yG1fW8igzP">[OpenReview]</a>
+<a href="https://drive.google.com/drive/folders/1yW3LhKbtUf9DGp77-dZXbu-dfQDdy8qF">[Model Weights]</a>
+
+</h3>
+
+<h1 align="center">
+Data-Augmented Phrase-Level Alignment for Mitigating Object Hallucination
+</h1>
+
+**Authors:** [Pritam Sarkar](https://www.pritamsarkar.com/), Sayna Ebrahimi, Ali Etemad, Ahmad Beirami, Sercan O Arik, Tomas Pfister 
+
+<hr>
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+  <div style="text-align: center; flex: 1;">
+    <img src="assets/gda.png" alt="DPA" style="width: 100%;" />
+    <p>A training sample constructed through generative <strong>data-augmentation</strong>.</p>
+  </div>
+  <div style="text-align: center; flex: 2.5;">
+    <img src="assets/dpa.png" alt="DPA" style="width: 100%;" />
+    <p>Overview of our <strong>phrase-level alignment</strong> training.</p>
+  </div>
+</div>
+
 ### Setup environment
 
 ```
@@ -17,7 +51,7 @@ We share a minimal setup to quickly try our HALVA! See this [notebook](try_halva
 
 - [HALVA 7B](https://drive.google.com/drive/folders/1X7Ox-LQ74qXgoVaqVQDx24t1HMIqTpX2)
 - [HALVA 13B](https://drive.google.com/drive/folders/16iH9FFGLykXywgFZEaGUW29pe29wFndK)
-- HALVA 13B/384 will be released upon acceptance
+- [HALVA 13B/384](https://drive.google.com/drive/folders/1cJKg4GCMO8yeTdpklfWFAD72x8zF_lzq)
 
 ### Training HALVA
 
@@ -41,7 +75,7 @@ We share a minimal setup to quickly try our HALVA! See this [notebook](try_halva
 
 - The base model LLaVA-v1.5 weights can be found here: [7B](https://huggingface.co/liuhaotian/llava-v1.5-7b) and [13B](https://huggingface.co/liuhaotian/llava-v1.5-13b). 
 - We use 4-A100 80GB GPUs for training, which takes 1.5 hours and 3 hours for training 7B and 13B variants, respectively. If you are using different GPUs, please make sure to match our default batch_size x gradient accumulation steps, for optimal performance with the default hyperparameters.
-- The following training script can be used to train HALVA:
+- The following training script can be used to train HALVA that uses LLaVA 1.5 as the base model:
     - HALVA-7B: `src/hallava_7b.sh`
     - HALVA-13B: `src/hallava_13b.sh`
 
@@ -120,7 +154,6 @@ bash src/evaluate_hall/mmhal.sh ${MODEL} ${MODEL_BASE} 0
 bash src/evaluate_hall/hallusionbench.sh ${MODEL} ${MODEL_BASE} 0
 ```
 
-*To run all of the above evaluations at once, you may use `src/evaluate_hall/eval_hall_suite.sh`.**
 
 ### Evaluation on general vision-language tasks
 
@@ -131,11 +164,29 @@ In addition to the above-mentioned evaluation on hallucination benchmarks, we al
 - [TextVQA](https://github.com/haotian-liu/LLaVA/blob/main/docs/Evaluation.md#textvqa)
 - [MME](https://github.com/haotian-liu/LLaVA/blob/main/docs/Evaluation.md#mme)
 
+### VILA 
 
-### Note
+The above instructions are mainly related to the LLaVA 1.5 based checkpoints, you can find the VILA codes inside `*_vila` directories.
 
-We release the training and evaluation codes along with the checkpoints to reproduce our results on LLaVA v1.5. The code and checkpoints to support VILA v1.5 will also be made available with the camera-ready version. 
+### Citation
+If you find this repository useful, please consider giving a star :star: and citation using the given BibTeX entry:
+
+```
+@misc{sarkar2024halva,
+      title={Mitigating Object Hallucination via Data Augmented Contrastive Tuning}, 
+      author={Pritam Sarkar and Sayna Ebrahimi and Ali Etemad and Ahmad Beirami and Sercan Ö. Arık and Tomas Pfister},
+      year={2024},
+      eprint={2405.18654},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
 
 ### Acknowledgement
 
-This code base is built upon [LLaVA](https://github.com/haotian-liu/LLaVA/tree/main).
+This code base is built upon [LLaVA](https://github.com/haotian-liu/LLaVA/tree/main) and [VILA](https://github.com/NVlabs/VILA).
+
+
+### Contact me
+You may directly contact me at <pritam.sarkar@queensu.ca> or connect with me through [LinkedIn](https://www.linkedin.com/in/sarkarpritam/).
+
