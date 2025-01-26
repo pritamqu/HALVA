@@ -22,10 +22,10 @@ Data-Augmented Phrase-Level Alignment for Mitigating Object Hallucination
 
 
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
-  <div style="text-align: center; flex: 1;">
+  <!-- <div style="text-align: center; flex: 1;">
     <img src="assets/gda.png" alt="DPA" style="width: 100%;" />
     <p>A training sample constructed through generative <strong>data-augmentation</strong>.</p>
-  </div>
+  </div> -->
   <div style="text-align: center; flex: 2.5;">
     <img src="assets/dpa.png" alt="DPA" style="width: 100%;" />
     <p>Overview of our <strong>phrase-level alignment</strong> training.</p>
