@@ -20,7 +20,7 @@ Data-Augmented Phrase-Level Alignment for Mitigating Object Hallucination
 Sayna Ebrahimi
 &nbsp;
 Ali Etemad
-&nbsp;
+&nbsp; <br>
 Ahmad Beirami
 &nbsp;
 Sercan O Arik
