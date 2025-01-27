@@ -1,22 +1,40 @@
 
-<div align="center">
+<!-- <div align="center">
     <img src="assets/halva_icon.png" alt="HALVA" style="width:auto;height:144px;">
 </div>
 <h1 align="center">
 HALVA
-</h1>
-<h3 align="center"> 
-<a href="https://arxiv.org/abs/2405.18654">[arXiV]</a>
-<a href="https://openreview.net/forum?id=yG1fW8igzP">[OpenReview]</a>
-<a href="https://huggingface.co/collections/pritamqu/halva-6797efacaa78d98bccb8e57a">[Model Weights &#129303]</a>
-
-</h3>
+</h1> -->
 
 <h1 align="center">
 Data-Augmented Phrase-Level Alignment for Mitigating Object Hallucination
 </h1>
 
-**Authors:** [Pritam Sarkar](https://www.pritamsarkar.com/), Sayna Ebrahimi, Ali Etemad, Ahmad Beirami, Sercan O Arik, Tomas Pfister 
+
+<h3 align="center">
+:star: :star: ICLR 2025 :star: :star:
+</h3>
+<h3 align="center">
+<a href="https://www.pritamsarkar.com">Pritam Sarkar</a>
+&nbsp;
+Sayna Ebrahimi
+&nbsp;
+Ali Etemad
+&nbsp;
+Ahmad Beirami
+&nbsp;
+Sercan O Arik
+&nbsp;
+Tomas Pfister 
+</h3>
+
+<h4 align="center"> 
+<a href="https://arxiv.org/abs/2405.18654">[arXiV]</a>
+<a href="https://openreview.net/forum?id=yG1fW8igzP">[OpenReview]</a>
+<a href="https://huggingface.co/collections/pritamqu/halva-6797efacaa78d98bccb8e57a">[Model Weights &#129303]</a>
+<a href="https://github.com/pritamqu/HALVA/tree/master?tab=readme-ov-file#data">[Training Data]</a>
+</h5>
+
 
 <hr>
 
