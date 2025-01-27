@@ -8,7 +8,7 @@ HALVA
 <h3 align="center"> 
 <a href="https://arxiv.org/abs/2405.18654">[arXiV]</a>
 <a href="https://openreview.net/forum?id=yG1fW8igzP">[OpenReview]</a>
-<a href="https://drive.google.com/drive/folders/1yW3LhKbtUf9DGp77-dZXbu-dfQDdy8qF">[Model Weights]</a>
+<a href="https://huggingface.co/collections/pritamqu/halva-6797efacaa78d98bccb8e57a">[Model Weights :hugging_face:]</a>
 
 </h3>
 
@@ -49,9 +49,9 @@ We share a minimal setup to quickly try our HALVA! See this [notebook](try_halva
 
 ### Model weights
 
-- [HALVA 7B](https://drive.google.com/drive/folders/1X7Ox-LQ74qXgoVaqVQDx24t1HMIqTpX2)
-- [HALVA 13B](https://drive.google.com/drive/folders/16iH9FFGLykXywgFZEaGUW29pe29wFndK)
-- [HALVA 13B/384](https://drive.google.com/drive/folders/1cJKg4GCMO8yeTdpklfWFAD72x8zF_lzq)
+- [HALVA 7B](https://huggingface.co/pritamqu/halva7b-lora)
+- [HALVA 13B](https://huggingface.co/pritamqu/halva13b-lora)
+- [HALVA 13B/384](https://huggingface.co/pritamqu/halva13b384-lora)
 
 ### Training HALVA
 
