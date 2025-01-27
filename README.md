@@ -8,7 +8,7 @@ HALVA
 <h3 align="center"> 
 <a href="https://arxiv.org/abs/2405.18654">[arXiV]</a>
 <a href="https://openreview.net/forum?id=yG1fW8igzP">[OpenReview]</a>
-<a href="https://huggingface.co/collections/pritamqu/halva-6797efacaa78d98bccb8e57a">[Model Weights :hugging_face:]</a>
+<a href="https://huggingface.co/collections/pritamqu/halva-6797efacaa78d98bccb8e57a">[Model Weights &#129303]</a>
 
 </h3>
 
