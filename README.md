@@ -191,7 +191,7 @@ If you find this repository useful, please consider giving a star :star: and cit
 
 ```
 @misc{sarkar2024halva,
-      title={Mitigating Object Hallucination via Data Augmented Contrastive Tuning}, 
+      title={Data-Augmented Phrase-Level Alignment for Mitigating Object Hallucination}, 
       author={Pritam Sarkar and Sayna Ebrahimi and Ali Etemad and Ahmad Beirami and Sercan Ö. Arık and Tomas Pfister},
       year={2024},
       eprint={2405.18654},
